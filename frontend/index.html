@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gaming Z - Tu tienda gaming definitiva</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+
+    <body>
+
+        <!-- HEADER -->
+
+        <header>
+            <div class="logo">
+                <h1>
+                    <span class="logo-gaming">GAMING</span>
+                    <span class="logo-z">Z</span>
+                </h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#carrito">Carrito <span id="carrito-contador" class="carrito-contador">0</span></a></li>
+                    <li><a href="#conocenos">Conócenos</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- MAIN -->
+
+        <main>
+
+            <!-- SECCIÓNCARRUSEL -->
+
+            <section class="hero">
+                <!-- Carrusel de imágenes -->
+                <div class="carrusel">
+                    <div class="carrusel-slide active">
+                        <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=1200" alt="Setup Gaming 1">
+                    </div>
+                    <div class="carrusel-slide">
+                        <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=1200" alt="Setup Gaming 2">
+                    </div>
+                    <div class="carrusel-slide">
+                        <img src="https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=1200" alt="Setup Gaming 3">
+                    </div>
+                </div>
+                
+                <!-- Contenido sobre el carrusel -->
+                <div class="hero-content">
+                    <h2>Bienvenido a Gaming Z</h2>
+                    <p>Los mejores periféricos gaming al mejor precio</p>
+                    <a href="#productos" class="cta-button">Ver productos</a>
+                </div>
+                
+                <!-- Indicadores del carrusel -->
+                <div class="carrusel-indicadores">
+                    <span class="indicador active" onclick="irASlide(0)"></span>
+                    <span class="indicador" onclick="irASlide(1)"></span>
+                    <span class="indicador" onclick="irASlide(2)"></span>
+                </div>
+                
+                <!-- Flechas de navegación -->
+                <button class="carrusel-btn prev" onclick="cambiarSlide(-1)">❮</button>
+                <button class="carrusel-btn next" onclick="cambiarSlide(1)">❯</button>
+            </section>
+
+            <!-- SECCIÓN DE PRODUCTOS -->
+
+            <section id="productos" class="productos fade-in-section">
+                <h2 class="section-title">Nuestros Productos</h2>
+            
+                <div class="productos-grid">
+
+                    <!-- Producto Raton -->
+
+                    <article class="producto-card">
+                        <div class="producto-image">
+                            <div class="producto-image">
+                                <img src="images/raton.jpg" alt="Ratón Gaming RGB">
+                            </div>
+                        </div>
+                        <div class="producto-info">
+                            <h3>Ratón Gaming RGB</h3>
+                            <p>Ratón ergonómico con 7 botones programables, sensor óptico de alta precisión y luces RGB personalizables.</p>
+                            <p class="precio">49.99€</p>
+                            <button class="btn-comprar" onclick="agregarAlCarrito('Ratón Gaming RGB', 49.99)">Añadir al carrito</button>
+                        </div>
+                    </article>
+
+                    <!-- Producto Teclado -->
+
+                    <article class="producto-card">
+                        <div class="producto-image">
+                            <div class="producto-image">
+                                <img src="images/teclado.jpg" alt="Teclado Mecánico">
+                            </div>
+                        </div>
+                        <div class="producto-info">
+                            <h3>Teclado Mecánico</h3>
+                            <p>Teclado mecánico con switches azules, retroiluminación RGB completa y reposamuñecas extraíble.</p>
+                            <p class="precio">89.99€</p>
+                            <button class="btn-comprar" onclick="agregarAlCarrito('Teclado Mecánico', 89.99)">Añadir al carrito</button>
+                        </div>
+                    </article>
+
+                    <!-- Producto Cascos -->
+
+                    <article class="producto-card">
+                        <div class="producto-image">
+                            <div class="producto-image">
+                            <img src="images/auriculares.jpg" alt="Auriculares Gaming 7.1">
+                        </div>
+                        </div>
+                        <div class="producto-info">
+                            <h3>Auriculares Gaming 7.1</h3>
+                            <p>Sonido envolvente 7.1, micrófono extraíble con cancelación de ruido y almohadillas de gel refrigerantes.</p>
+                            <p class="precio">69.99€</p>
+                            <button class="btn-comprar" onclick="agregarAlCarrito('Auriculares Gaming 7.1', 69.99)">Añadir al carrito</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- SECCIÓN CARRITO -->
+
+            <section id="carrito" class="carrito fade-in-section">
+                <div class="carrito-container">
+                    <h2 class="section-title">Mi Carrito</h2>
+                        
+                    <div class="carrito-content">
+                        <!-- Lista de productos en el carrito -->
+                        <div id="carrito-lista" class="carrito-lista">
+                            <p class="carrito-vacio">Tu carrito está vacío</p>
+                        </div>
+                            
+                        <!-- Total y botón de compra -->
+                        <div class="carrito-total">
+                             <div class="total-info">
+                                <span>Total:</span>
+                                <span id="total-precio" class="total-precio">0.00€</span>
+                            </div>
+                            <button class="btn-finalizar">Finalizar compra</button>
+                            <button class="btn-vaciar">Vaciar carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN CONÓCENOS -->
+             
+            <section id="conocenos" class="conocenos fade-in-section">
+                <div class="conocenos-container">
+                    <h2 class="section-title">Conócenos</h2>
+                        
+                    <div class="conocenos-content">
+                        <div class="conocenos-text">
+                            <h3>🎮 Bienvenido a Gaming Z</h3>
+                            <p>Somos la tienda líder en periféricos gaming de alta calidad. Desde 2020, nos dedicamos a equipar a gamers profesionales y entusiastas con el mejor hardware del mercado.</p>
+                            
+                            <h3>🚀 Nuestra Misión</h3>
+                            <p>Ofrecer productos gaming de élite a precios competitivos, respaldados por un servicio al cliente excepcional y asesoramiento técnico especializado para que domines cada partida.</p>
+                            
+                            <h3>⚡ ¿Por qué Gaming Z?</h3>
+                            <ul class="ventajas-lista">
+                                <li>✨ Marcas premium: Logitech, Razer, Corsair, HyperX</li>
+                                <li>🚀 Envío express en 24-48h a toda España</li>
+                                <li>💯 Garantía de 2 años + devolución sin preguntas</li>
+                                <li>🎮 Soporte técnico gaming especializado 24/7</li>
+                                <li>🏆 +10,000 gamers confían en nosotros</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN DE CONTACTO -->
+
+            <section id="contacto" class="contacto fade-in-section">
+                <h2 class="section-title">Contáctanos</h2>
+            
+                <div class="form-container">
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-enviar">Enviar mensaje</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Dejo espacio por si acaso tengo que meter mas cosas -->
+
+        </main>
+        
+        <!-- FOOTER -->
+
+        <footer>
+            <div class="footer-content">
+
+                <!-- Redes Sociales -->
+
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <div class="social-icons">
+                        <a href="https://x.com/" class="social-icon" title="Twitter" target="_blank" rel="noopener noreferrer">𝕏</a>
+                        <a href="https://www.instagram.com/" class="social-icon" title="Instagram" target="_blank" rel="noopener noreferrer">📷</a>
+                        <a href="https://www.youtube.com/watch?v=vDIThTS8DeE&list=RDvDIThTS8DeE&start_radio=1" class="social-icon" title="YouTube" target="_blank" rel="noopener noreferrer">▶️</a>
+                    </div>
+                </div>
+
+                <!-- Datos de Contacto -->
+
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p>📧 info@gamingz.com</p>
+                    <p>📞 +34 976 00 00 00</p>
+                    <p>📍 Calle San Valero 42, Zaragoza</p>
+                </div>
+
+                <!-- Información adicional -->
+                
+                <div class="footer-section">
+                    <h3>Gaming Z</h3>
+                    <p>Tu tienda de confianza para</p>
+                    <p>periféricos gaming de calidad</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Gaming Z. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+
+        <script src="js/script.js"></script>
+            
+        <!-- Botón volver arriba -->
+         
+        <button id="btn-volver-arriba" class="btn-volver-arriba" title="Volver arriba">
+            ▲
+        </button>
+
+    </body>
+</html>
