@@ -375,3 +375,35 @@ document.addEventListener('DOMContentLoaded', function() {
         btnFinalizar.addEventListener('click', finalizarCompra);
     }
 });
+// Validación del formulario de contacto
+function validarFormulario(event) {
+    event.preventDefault();
+    
+    const nombre = document.getElementById('nombre').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const mensaje = document.getElementById('mensaje').value.trim();
+    
+    // Validar campos vacíos
+    if (nombre === '' || email === '' || mensaje === '') {
+        alert('⚠️ Por favor, completa todos los campos');
+        return false;
+    }
+    
+    // Validar formato de email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert('⚠️ Por favor, introduce un email válido');
+        return false;
+    }
+    
+    // Validar longitud mínima del mensaje
+    if (mensaje.length < 10) {
+        alert('⚠️ El mensaje debe tener al menos 10 caracteres');
+        return false;
+    }
+    
+    // Si todo está correcto
+    alert('✅ Mensaje enviado correctamente. Gracias por contactarnos!');
+    document.querySelector('.contact-form').reset();
+    return false;
+}
