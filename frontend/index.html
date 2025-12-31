@@ -183,7 +183,7 @@
                 <h2 class="section-title">Contáctanos</h2>
             
                 <div class="form-container">
-                    <form class="contact-form">
+                    <form class="contact-form" onsubmit="return validarFormulario(event)">
                         <div class="form-group">
                             <label for="nombre">Nombre completo</label>
                             <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
